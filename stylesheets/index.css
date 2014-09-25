@@ -1,9 +1,13 @@
 .link a{
-	background-color: none;
 	text-decoration: none;
 	color: black; 
 	font-family: "Helvetica";
 }
+
+html {
+    background-color: #F2F2F2
+}
+
 
 p.special {
 	font-size: 34px;
