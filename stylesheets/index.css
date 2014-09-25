@@ -8,19 +8,20 @@ html {
     background-color: #F2F2F2
 }
 
-
-p.special {
-	font-size: 34px;
+div a {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
-/*
- * p {...} => a rule
- * p => selector (generally an HTML element)
- * background-color: yellow; => declaration
- * background-color => property
- * yellow => value 
-*/
+.portrait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 h1 {
+	font-size: 34px;
+	text-align: center;
 	font-family: "Helvetica";
 }
