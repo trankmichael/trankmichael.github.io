@@ -1,0 +1,22 @@
+.link a{
+	background-color: none;
+	text-decoration: none;
+	color: black; 
+	font-family: "Helvetica";
+}
+
+p.special {
+	font-size: 34px;
+}
+
+/*
+ * p {...} => a rule
+ * p => selector (generally an HTML element)
+ * background-color: yellow; => declaration
+ * background-color => property
+ * yellow => value 
+*/
+
+h1 {
+	font-family: "Helvetica";
+}
