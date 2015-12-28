@@ -125,25 +125,30 @@ function pnormal_rnd() {
 }
 
 
+function add_random_point() {
+        x = Math.floor((pnormal_rnd() * width) + (width / 2));
+        y = Math.floor((pnormal_rnd() * height) + (height / 2));
+        add_point(x, y, radius, height, width);
+}
+
 function setup() {
-    // width = 1200;
-    // height = 880;
-    width = document.getElementById("ch-sketch").offsetWidth; 
+    background(255);
+    width = document.getElementById("ch-sketch").offsetWidth - 100; 
     console.log(width);
     height = screen.height / 1.4;
+    radius = 7;
     console.log(height);
     var cnv = createCanvas(width, height);
     cnv.parent("ch-sketch")
     node_color = color(0, 146, 204);
-    stroke_color = color(3, 65, 89);
+    stroke_color = color(0, 146, 204);
     center_color = color(227, 34, 34)
+    stroke(stroke_color);
     fill(node_color);
     for (var i = 100; i >= 0; i--) {
-        x = Math.floor((pnormal_rnd() * width) + (width / 2));
-        y = Math.floor((pnormal_rnd() * height) + (height / 2));
-        add_point(x, y, 3, height, width);
+        add_random_point();
     }
-    redraw_points(points, 10);
+    redraw_points(points, radius);
 }
 
 function force_bounds( x, min, max ) {
@@ -178,19 +183,18 @@ function add_point( mouseX, mouseY, radius, height, width){
 
 function redraw_points(datapoints, radius)
 {
-    for (var i = datapoints.length - 1; i >= 0; i--) {
-        p = datapoints[i];
-        ellipse(p.x, p.y, radius, radius);
+    if( typeof datapoints != "undefined" ) {
+        for (var i = datapoints.length - 1; i >= 0; i--) {
+            p = datapoints[i];
+            ellipse(p.x, p.y, radius, radius);
+        }
     }
 }
 
 function mousePressed() {
-    var radius = 10
-    background(255);
     fill(node_color);
     redraw_points(points, radius);
     add_point(mouseX, mouseY, radius, height, width);
-    draw_hulls(points, 1);
 }
 
 function x_max( datapoints ){
@@ -257,7 +261,8 @@ function strip_indices(original, indices) {
 
 function fill_center(datapoints) {
     fill(center_color);
-    redraw_points(datapoints, 10)
+    redraw_points(datapoints, radius);
+    fill(node_color);
 }
 
 function draw_hulls(datapoints, spacing) {
@@ -273,6 +278,35 @@ function draw_hulls(datapoints, spacing) {
         temp = strip_indices(temp, indices);
         i++;
     }
+    redraw_points(points);
     fill_center(temp2);
-
 }
+
+$('#clear_canvas').on('click', function(event) {
+    points = [];
+    clear();
+});
+
+$('#find_center').on('click', function(event) {
+    clear();
+    fill(node_color);
+    redraw_points(points, radius);
+    draw_hulls(points, 1);
+});
+
+$('#add_points').on('click', function(event) {
+    var n = $("#number_of_points").val();
+    n = parseInt(n, 10);
+    n = Math.floor(n);
+    fill(node_color);
+    for( var i = 0; i < n; i++ ) {
+        add_random_point();
+    }
+    clear();
+    redraw_points(points, radius);
+    draw_hulls(points, 1);
+    redraw_points(points, radius);
+    $("#number_of_points").val("");
+
+});
+
