@@ -154,12 +154,12 @@ function setup() {
 function force_bounds( x, min, max ) {
     var len = max - min;
     if (x < min) {
-        return (min + ((min - x) % len));
+        return false;
     }
     if (x > max) {
-        return (max - ((x - max) % len));
+        return false;
     }
-    return x;
+    return true;
 }
 
 function already_exists(mouseX, mouseY) {
@@ -173,9 +173,8 @@ function already_exists(mouseX, mouseY) {
 }
 
 function add_point( mouseX, mouseY, radius, height, width){
-    mouseX = force_bounds(mouseX, 0, width);
-    mouseY = force_bounds(mouseY, 0, height);
-    if (!already_exists(mouseX, mouseY)) {
+    var in_bounds = force_bounds(mouseX, 0, width) && force_bounds(mouseY, 0, height);
+    if (!already_exists(mouseX, mouseY) && in_bounds) {
         ellipse(mouseX, mouseY, radius, radius);
         points.push(new Point(mouseX, mouseY));
     }
@@ -286,6 +285,13 @@ $('#clear_canvas').on('click', function(event) {
     points = [];
     clear();
 });
+
+$('#clear_hulls').on('click', function(event) {
+    clear();
+    fill(node_color);
+    redraw_points(points, radius);
+});
+
 
 $('#find_center').on('click', function(event) {
     clear();
