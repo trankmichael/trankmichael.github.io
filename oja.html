@@ -79,24 +79,25 @@
                 <dt>Affine Invariance</dt>
                     <dd>Yes, the Oja depth measure is affine invariant.  This is because under an affine transformation, the volume of the simplices is scaled by a factor dependent on the determinant of the matrix deciding the linear transformation.  Because all volumes are scaled equally, the relative depth ranking of points does not change.  </dd>
                 <dt>Maximality at the Center</dt>
-                    <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
+                    <dd>The Oja depth function does not necessarily have a unique center, but the depth at any center will be maximal. </dd>
                 <dt>Monotonicity</dt>
                     <dd> The depth  function should be monotone decreasing as points move away from the 'center' of the distribution on some ray.</dd>
                 <dt>Vanishing at Infinity</dt>
-                    <dd>As points approach infinity, the depth function of the points should also approach zero.</dd>
+                    <dd>Because, the depth of point is inversely related to the volume of the simplices, points at infinity have depth approaching the minimum of the Oja depth function.</dd>
                 <dt>Robustness</dt>
-                    <dd>As points approach infinity, the depth function of the points should also approach zero.</dd>
+                    <dd>In one case, it has been shown that the breakdown point of the Oja depth function is zero. </dd>
             </dl>
-
+        <h1>Center Finding Algorithm</h1>
+          <p class="lead"> The algorithm used to implement the left was first proposed by Aloupis, and is outlined as follows: 
+             <ol class="lead">
+              <li>For all points <b>x</b> in the set:
+                  <ol class="lead">
+                    <li>Sort radially all the line segments determined by <b>x</b> and some <b>y</b> in the set. </li>
+                  </ol>
+              </li>
+            </ol>
         <h1>Time Complexity</h1>
-              <dl>
-                <dt>Bivariate</dt>
-                    <dd>Chazelle showed that in the bivariate case, the center can be found in <b>O(nlogn)</b> time. </dd>
-                <dt>Multivariate</dt>
-                    <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
-                <dt>This Example</dt>
-                    <dd>To the right, the jarvis march algorithm is run to compute the convex hull at each step.  Each computation takes O(nh) where h is the number of hull points.  Because the sum of the hull points is equal to n, the overall time is <b>O(n<sup>2</sup>)</b>.</dd>
-               </dl>
+
         </div>
       </div>
       
