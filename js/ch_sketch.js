@@ -133,7 +133,7 @@ function add_random_point() {
 
 function setup() {
     background(255);
-    width = document.getElementById("ch-sketch").offsetWidth - 100; 
+    width = document.getElementById("ch-sketch").offsetWidth / 2; 
     console.log(width);
     height = screen.height / 1.7;
     radius = 7;

@@ -51,22 +51,24 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
-            <div class="row">
-              <div id='ch-sketch' class="col-xs-12"></div>
-              <div class="col-xs-6">
-                <div class="container">
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <label for="exampleInputName2">Number of points</label>
-                      <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
-                    </div>
-                    <button id='add_points' type="button" class="btn btn-default">Add Points</button>
-                    <button id='find_center' type="button" class="btn btn-default">Find Center</button>
-                    <button id='clear_hulls' type="button" class="btn btn-default">Clear Hulls</button>
-                    <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
-                  </form>
+          <div class="affix" data-spy="affix">
+              <div class="row">
+                <div id='ch-sketch' class="col-xs-12"></div>
+                <div class="col-xs-6">
+                  <div class="container">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <label for="exampleInputName2">Number of points</label>
+                        <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
+                      </div>
+                      <button id='add_points' type="button" class="btn btn-default">Add Points</button>
+                      <button id='find_center' type="button" class="btn btn-default">Find Center</button>
+                      <button id='clear_hulls' type="button" class="btn btn-default">Clear Hulls</button>
+                      <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
+                    </form>
+                  </div>
                 </div>
-              </div>
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
@@ -74,15 +76,17 @@
           <p class="lead"> <b>Definition: </b> The convex hull peeling depth of a point is the number of convex hulls that must be peeled away from the point set until the point is exposed and part of the convex hull of the peeled point set. The center of a point set is then defined as the final convex set remaining.  If the convex set forms a convex hull, the center can be interpreted as the centroid of the hull.</p>
           
           <h1>Is this a good depth measure?</h1>
-              <p class="lead">Yes, the depth mesasure is affine invariant, maximal at the center, monotone decreasing. and vanishes at infinity.
+              <p class="lead">Yes, the depth mesasure is affine invariant, maximal at the center, monotone decreasing. and vanishes at infinity. This can be seen in the image below, labeling the depth values of each of the convex hulls given a ray from the center.
               <img src="images/ch_monotone_decreasing.png" alt="Convex Hull Peeling Properties" class="img-responsive center-block" style="width:425px;height:389px;"></p>
         <h1>Time Complexity</h1>
               <dl>
                 <dt>Bivariate</dt>
-                    <dd>Chazelle showed that in the bivariate case, the center can be found in O(nlogn) time. </dd>
+                    <dd>Chazelle showed that in the bivariate case, the center can be found in <b>O(nlogn)</b> time. </dd>
                 <dt>Multivariate</dt>
                     <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
-              </dl>
+                <dt>This Example</dt>
+                    <dd>To the right, the jarvis march algorithm is run to compute the convex hull at each step.  Each computation takes O(nh) where h is the number of hull points.  Because the sum of the hull points is equal to n, the overall time is <b>O(n<sup>2</sup>)</b></dd>.
+               </dl>
         </div>
         </div>
       </div>
