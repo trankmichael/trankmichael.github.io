@@ -135,8 +135,10 @@ function setup() {
     background(255);
     width = document.getElementById("ch-sketch").offsetWidth - 100; 
     console.log(width);
-    height = screen.height / 1.4;
+    height = screen.height / 1.7;
     radius = 7;
+    stroke_weight = 1;
+    strokeWeight(stroke_weight);
     console.log(height);
     var cnv = createCanvas(width, height);
     cnv.parent("ch-sketch")
@@ -258,11 +260,50 @@ function strip_indices(original, indices) {
     return original;
 }
 
-function fill_center(datapoints) {
-    fill(center_color);
-    redraw_points(datapoints, radius);
-    fill(node_color);
+function  draw_cross(c_x, c_y, radius) {
+    console.log(radius);
+    stroke(center_color);
+    line(c_x + radius, c_y + radius, c_x - radius, c_y - radius);
+    line(c_x - radius, c_y + radius, c_x + radius, c_y - radius);
+    stroke(stroke_color);
 }
+
+function draw_centroid(hull_points) {
+    var C_x = 0;
+    var C_y = 0;
+    var area = 0;
+    for (var i = hull_points.length - 1; i >= 0; i--) {
+        p = hull_points[i];
+        C_x += p.x;
+        C_y += p.y;
+    }
+    C_x = C_x / hull_points.length;
+    C_y = C_y / hull_points.length;
+    draw_cross(C_x, C_y, radius);
+}
+
+function fill_center(hull_points, inner_hull_points) {
+    fill(center_color);
+    stroke(center_color);
+    if (inner_hull_points.length == 0) {
+        draw_centroid(hull_points);
+    } else {
+        if (inner_hull_points.length == 2) {
+            p = inner_hull_points[0];
+            q = inner_hull_points[1];
+            line(p.x, p.y, q.x, q.y);
+        }
+        redraw_points(inner_hull_points, radius);
+    }
+    fill(node_color);
+    stroke(stroke_color);
+}
+
+function diff(A, B) {
+    return A.filter(function (a) {
+        return B.indexOf(a) == -1;
+    });
+}  
 
 function draw_hulls(datapoints, spacing) {
     var temp = datapoints.slice();
@@ -277,8 +318,9 @@ function draw_hulls(datapoints, spacing) {
         temp = strip_indices(temp, indices);
         i++;
     }
+    temp2 = diff(temp2, temp);
     redraw_points(points);
-    fill_center(temp2);
+    fill_center(temp2, temp);
 }
 
 $('#clear_canvas').on('click', function(event) {

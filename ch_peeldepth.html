@@ -48,22 +48,46 @@
       </div>
     </nav>
 
+    <div class="container-fluid">
       <div class="row">
-        <div id='ch-sketch' class="col-sm-6"></div>
-        <div class="col-sm-6"></div>
-      </div>
-      <div class="container">
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="exampleInputName2">Number of points</label>
-            <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
+        <div class="col-sm-6">
+            <div class="row">
+              <div id='ch-sketch' class="col-xs-12"></div>
+              <div class="col-xs-6">
+                <div class="container">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="exampleInputName2">Number of points</label>
+                      <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
+                    </div>
+                    <button id='add_points' type="button" class="btn btn-default">Add Points</button>
+                    <button id='find_center' type="button" class="btn btn-default">Find Center</button>
+                    <button id='clear_hulls' type="button" class="btn btn-default">Clear Hulls</button>
+                    <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
+                  </form>
+                </div>
+              </div>
           </div>
-          <button id='add_points' type="button" class="btn btn-default">Add Points</button>
-          <button id='find_center' type="button" class="btn btn-default">Find Center</button>
-          <button id='clear_hulls' type="button" class="btn btn-default">Clear Hulls</button>
-          <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
-        </form>
+        </div>
+        <div class="col-sm-6">
+          <h1>Convex Hull Peeling Depth</h1>
+          <p class="lead"> <b>Definition: </b> The convex hull peeling depth of a point is the number of convex hulls that must be peeled away from the point set until the point is exposed and part of the convex hull of the peeled point set. The center of a point set is then defined as the final convex set remaining.  If the convex set forms a convex hull, the center can be interpreted as the centroid of the hull.</p>
+          
+          <h1>Is this a good depth measure?</h1>
+              <p class="lead">Yes, the depth mesasure is affine invariant, maximal at the center, monotone decreasing. and vanishes at infinity.
+              <img src="images/ch_monotone_decreasing.png" alt="Convex Hull Peeling Properties" class="img-responsive center-block" style="width:425px;height:389px;"></p>
+        <h1>Time Complexity</h1>
+              <dl>
+                <dt>Bivariate</dt>
+                    <dd>Chazelle showed that in the bivariate case, the center can be found in O(nlogn) time. </dd>
+                <dt>Multivariate</dt>
+                    <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
+              </dl>
+        </div>
+        </div>
       </div>
+
+
 
 
     <!-- Bootstrap core JavaScript
