@@ -43,8 +43,8 @@ function draw_line_segments( points ) {
 function setup() {
     lines = [];
     background(255);
-    width = document.getElementById("oja-sketch").offsetWidth - 100; 
-    height = screen.height / 1.4;
+    width = document.getElementById("oja-sketch").offsetWidth / 2; 
+    height = screen.height / 1.7;
     radius = 10;
     line_state = true;
     var cnv = createCanvas(width, height);

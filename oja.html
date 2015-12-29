@@ -48,23 +48,58 @@
       </div>
     </nav>
 
-      <div class="row">
-        <div id='oja-sketch' class="col-sm-6"></div>
-        <div class="col-sm-6"></div>
-      </div>
-      <div class="container">
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="exampleInputName2">Number of points</label>
-            <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
+     <div class="row">
+        <div class="col-sm-6">
+          <div class="affix" data-spy="affix">
+              <div class="row">
+                <div id='oja-sketch' class="col-xs-12"></div>
+                <div class="col-xs-6">
+                  <div class="container">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <label for="exampleInputName2">Number of points</label>
+                        <input id="number_of_points" type="number" min="0" step="1" class="form-control" id="exampleInputName2" placeholder='n'>
+                      </div>
+                      <button id='add_points' type="button" class="btn btn-default">Add Points</button>
+                      <button id='find_center' type="button" class="btn btn-default">Find Center</button>
+                      <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
+                      <button id='line_segments' type="button" data-toggle="button" class="btn btn-default">Toggle Line Segments</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
           </div>
-          <button id='add_points' type="button" class="btn btn-default">Add Points</button>
-          <button id='find_center' type="button" class="btn btn-default">Find Center</button>
-          <button id='clear_canvas' type="button" class="btn btn-default">Clear Canvas</button>
-          <button id='line_segments' type="button" data-toggle="button" class="btn btn-default">Toggle Line Segments</button>
-        </form>
-      </div>
+        </div>
+        <div class="col-sm-6">
+          <h1>Oja Depth</h1>
+          <p class="lead"> <b>Definition:</b> The Oja depth of a point <b>x</b> is found by summing the areas of all simplices (generalized triangles) which include <b>x</b> as a vertex.  Where the simplices summed are formed by <b>x</b> and other vertices which are in the pointset. </p>
+          
+          <h1>Is this a good depth measure?</h1>
+              <dl>
+                <dt>Affine Invariance</dt>
+                    <dd>Yes, the Oja depth measure is affine invariant.  This is because under an affine transformation, the volume of the simplices is scaled by a factor dependent on the determinant of the matrix deciding the linear transformation.  Because all volumes are scaled equally, the relative depth ranking of points does not change.  </dd>
+                <dt>Maximality at the Center</dt>
+                    <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
+                <dt>Monotonicity</dt>
+                    <dd> The depth  function should be monotone decreasing as points move away from the 'center' of the distribution on some ray.</dd>
+                <dt>Vanishing at Infinity</dt>
+                    <dd>As points approach infinity, the depth function of the points should also approach zero.</dd>
+                <dt>Robustness</dt>
+                    <dd>As points approach infinity, the depth function of the points should also approach zero.</dd>
+            </dl>
 
+        <h1>Time Complexity</h1>
+              <dl>
+                <dt>Bivariate</dt>
+                    <dd>Chazelle showed that in the bivariate case, the center can be found in <b>O(nlogn)</b> time. </dd>
+                <dt>Multivariate</dt>
+                    <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
+                <dt>This Example</dt>
+                    <dd>To the right, the jarvis march algorithm is run to compute the convex hull at each step.  Each computation takes O(nh) where h is the number of hull points.  Because the sum of the hull points is equal to n, the overall time is <b>O(n<sup>2</sup>)</b>.</dd>
+               </dl>
+        </div>
+      </div>
+      
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

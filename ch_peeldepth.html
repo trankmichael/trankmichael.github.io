@@ -77,7 +77,11 @@
           
           <h1>Is this a good depth measure?</h1>
               <p class="lead">Yes, the depth mesasure is affine invariant, maximal at the center, monotone decreasing. and vanishes at infinity. This can be seen in the image below, labeling the depth values of each of the convex hulls given a ray from the center.
-              <img src="images/ch_monotone_decreasing.png" alt="Convex Hull Peeling Properties" class="img-responsive center-block" style="width:425px;height:389px;"></p>
+              <img src="images/ch_monotone_decreasing.png" alt="Convex Hull Peeling Properties" class="img-responsive center-block" style="width:425px;height:389px;">
+              In general, the convex hull peeling depth is expected be robust and the points with low depth are outliers, but in some cases the breakdown point of the convex hull peeling depth can be zero. One case is when there are a large number of the points on the same outer convex hull.  This makes the center easily corrupted as a few points at infinity can force the center far its initial position.  This is shown in the next figure. 
+              <img src="images/robustness_ch.png" alt="Convex Hull Peeling Properties" class="img-responsive center-block" style="width:633px;height:149px;">
+              </p>
+
         <h1>Time Complexity</h1>
               <dl>
                 <dt>Bivariate</dt>
@@ -85,7 +89,7 @@
                 <dt>Multivariate</dt>
                     <dd>The depth function should have a unique 'center' where which the depth function takes on its maximum value. </dd>
                 <dt>This Example</dt>
-                    <dd>To the right, the jarvis march algorithm is run to compute the convex hull at each step.  Each computation takes O(nh) where h is the number of hull points.  Because the sum of the hull points is equal to n, the overall time is <b>O(n<sup>2</sup>)</b></dd>.
+                    <dd>To the right, the jarvis march algorithm is run to compute the convex hull at each step.  Each computation takes O(nh) where h is the number of hull points.  Because the sum of the hull points is equal to n, the overall time is <b>O(n<sup>2</sup>)</b>.</dd>
                </dl>
         </div>
         </div>
