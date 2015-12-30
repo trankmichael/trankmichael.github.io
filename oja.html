@@ -72,20 +72,20 @@
         </div>
         <div class="col-sm-6">
           <h1>Oja Depth</h1>
-          <p class="lead"> <b>Definition:</b> The Oja depth of a point <b>x</b> is found by summing the areas of all simplices (generalized triangles) which include <b>x</b> as a vertex.  Where the simplices summed are formed by <b>x</b> and other vertices which are in the pointset. </p>
+          <p class="lead"> <b>Definition:</b> The Oja depth of a point <b>x</b> is found by summing the areas of all simplices (generalized triangles) which include <b>x</b> as a vertex.  Where the simplices summed are formed by <b>x</b> and other vertices which are in the pointset. An Oja median of a point set is a point where the sum of the volumes is minimal.</p>
           
           <h1>Is this a good depth measure?</h1>
               <dl>
                 <dt>Affine Invariance</dt>
                     <dd>Yes, the Oja depth measure is affine invariant.  This is because under an affine transformation, the volume of the simplices is scaled by a factor dependent on the determinant of the matrix deciding the linear transformation.  Because all volumes are scaled equally, the relative depth ranking of points does not change.  </dd>
                 <dt>Maximality at the Center</dt>
-                    <dd>The Oja depth function does not necessarily have a unique center, but the depth at any center will be maximal. </dd>
+                    <dd>The Oja depth function does not necessarily have a unique center, but the depth at any center will be maximal (actually minimal) at the center by definition. </dd>
                 <dt>Monotonicity</dt>
-                    <dd> The depth  function should be monotone decreasing as points move away from the 'center' of the distribution on some ray.</dd>
+                    <dd> The Oja depth function monotonically increases as points move away from the center.  The Oja depth function was proven to be convex.</dd>
                 <dt>Vanishing at Infinity</dt>
-                    <dd>Because, the depth of point is inversely related to the volume of the simplices, points at infinity have depth approaching the minimum of the Oja depth function.</dd>
+                    <dd>Because, the volume of the simplices also grows toward infinity as points move toward infinity, the depth function becomes maximal at infinity. Notice that the depth of the center is minimal and therefore the points away from the center should have large depth values.</dd>
                 <dt>Robustness</dt>
-                    <dd>In one case, it has been shown that the breakdown point of the Oja depth function is zero. </dd>
+                    <dd>In one case, it has been shown that the breakdown point of the Oja depth function is zero.  In the bivariate case, this occurs when all points are collinear, then we can see that all points would have simplices of volume zero.  This would allow a point at infinity to be part of the center. The case generalizes for higher dimensions, but seems improbable in practice. </dd>
             </dl>
         <h1>Center Finding Algorithm</h1>
           <p class="lead"> The algorithm used to implement the left was first proposed by Aloupis, and is outlined as follows: 
@@ -93,6 +93,7 @@
               <li>For all points <b>x</b> in the set:
                   <ol class="lead">
                     <li>Sort radially all the line segments determined by <b>x</b> and some <b>y</b> in the set. </li>
+                    <li>Find the point <b>d</b> where the Oja depth is minimum on the line. </li>
                   </ol>
               </li>
             </ol>

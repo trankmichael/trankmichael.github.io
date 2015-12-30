@@ -11,6 +11,7 @@ function Point( x, y ){
 function Line(p, q){
     this.p = p;
     this.q = q;
+    this.slope = (p.y - q.y) / (p.x - q.x);
 }
 
 // approximately normal random http://jsfiddle.net/Guffa/tvt5K/
@@ -18,6 +19,9 @@ function pnormal_rnd() {
     return ((Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()) - 3) / 3;
 }
 
+function slope_comparator(a, b) {
+    return a.slope - b.slope;
+}
 
 function add_random_point() {
     x = Math.floor((pnormal_rnd() * width) + (width / 2));
@@ -27,6 +31,19 @@ function add_random_point() {
 
 
 
+function find_oja_median() {
+    var lines = [];
+    for (var i = 0; i < points.length; i++) {
+        s = points[i];
+        lines = []
+        for (var j = 1; j < points.length; j++) {
+            p = points[(i + j) % points.length];
+            lines.push(new Line(s, p));
+            lines.sort(slope_comparator);
+        }
+    }
+}
+
 function draw_line_segments( points ) {
     stroke(60);
     for (var i = 0; i < points.length; i++) {
@@ -34,7 +51,6 @@ function draw_line_segments( points ) {
         for (var j = i + 1; j < points.length; j++) {
             q = points[j]; 
             line(p.x, p.y, q.x, q.y);
-            lines.push(new Line(p, q));
         }   
     }
     line_state = true;
@@ -46,14 +62,14 @@ function setup() {
     width = document.getElementById("oja-sketch").offsetWidth / 2; 
     height = screen.height / 1.7;
     radius = 10;
-    line_state = true;
+    line_state = false;
     var cnv = createCanvas(width, height);
     cnv.parent("oja-sketch")
     node_color = color(0, 146, 204);
     stroke_color = color(3, 65, 89);
     center_color = color(227, 34, 34)
     fill(node_color);
-    for (var i = 20; i >= 0; i--) {
+    for (var i = 10; i >= 0; i--) {
         add_random_point();
     }
     draw_line_segments(points);
@@ -131,17 +147,12 @@ function left_turn(p, q, r) {
     return true;
 }
 
-function calculate_oja_depth(datapoints) {
-    for (var i = datapoints.length - 1; i >= 0; i--) {
-        var s = datapoints[i];
+// function calculate_oja_depth(datapoints) {
+//     for (var i = datapoints.length - 1; i >= 0; i--) {
+//         var s = datapoints[i];
 
-    };
-}
-
-function find_oja_median(datapoints) {
-    var oja_values = calculate_oja_depth(datapoints)
-    var min = Math.infinity    
-}
+//     };
+// }
 
 $('#clear_canvas').on('click', function(event) {
     points = [];
@@ -152,7 +163,7 @@ $('#find_center').on('click', function(event) {
     clear();
     fill(node_color);
     redraw_points(points, radius);
-    draw_hulls(points, 1);
+    find_oja_median();
 });
 
 $('#add_points').on('click', function(event) {
@@ -165,7 +176,6 @@ $('#add_points').on('click', function(event) {
     }
     clear();
     redraw_points(points, radius);
-    draw_hulls(points, 1);
     $("#number_of_points").val("");
 });
 
