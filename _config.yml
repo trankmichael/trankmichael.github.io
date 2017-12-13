@@ -1,0 +1,16 @@
+permalink: /:title/
+gems:
+  - jekyll-sitemap
+
+title: Michael Tran
+url: https://trankmichael.github.io
+baseurl: ""
+description: "Michael is a programmer, security developer, aspiring mycologist, baker, and brazilian jiu jitsu enthusiast."
+author: Michael Tran 
+linkedin: 
+goodreads: trankmichael 
+username: trankmichael
+email: trankmichael@gmail.org
+
+timezone: EST/Boston
+google_analytics_tracking_id:

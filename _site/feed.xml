@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Michael Tran</title>
+    <description>Michael is a programmer, security developer, aspiring mycologist, baker, and brazilian jiu jitsu enthusiast.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Dec 2017 15:25:00 +0000</pubDate>
+    <lastBuildDate>Wed, 13 Dec 2017 15:25:00 +0000</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>My first blog post</title>
+        <description>&lt;p&gt;Hello World!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Apr 2016 08:00:00 +0000</pubDate>
+        <link>http://localhost:4000/my-first-blog-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/my-first-blog-post/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>How to start a blog</title>
+        <description>&lt;p&gt;Want to start a blog? Visit &lt;a href=&quot;https://github.com/sebbas/plain-html-blog&quot;&gt;https://github.com/sebbas/plain-html-blog&lt;/a&gt; and learn how to set up your own &lt;em&gt;plain-html-blog&lt;/em&gt;! Enjoy!&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 01 Apr 2016 07:00:00 +0000</pubDate>
+        <link>http://localhost:4000/how-to-start-a-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-start-a-blog/</guid>
+        
+        
+        <category>tutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to plain-html-blog</title>
+        <description>&lt;p&gt;&lt;em&gt;plain-html-blog&lt;/em&gt; is a very clean &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; blog that works without CSS. It was inspired by websites which (for valid reasons) make minimal use of styling with CSS and the like.&lt;/p&gt;
+
+&lt;p&gt;Just to get an idea, check out &lt;a href=&quot;https://stallman.org&quot;&gt;stallman.org&lt;/a&gt;, Richard Stallman’s personal website, &lt;a href=&quot;http://www.paulgraham.com/index.html&quot;&gt;paulgraham.com&lt;/a&gt; or &lt;a href=&quot;http://motherfuckingwebsite.com&quot;&gt;motherfuckingwebsite.com&lt;/a&gt; (sorry for the language :~). They all come with a certain 90s flavour which in 2016 is still very functional and in a way elegant (only 90s developers will know … :)&lt;/p&gt;
+
+&lt;p&gt;Other than that, this Jekyll blog works like any other static website so you should feel right at home.&lt;/p&gt;
+
+&lt;p&gt;So now go ahead, you’ll want to &lt;a href=&quot;https://github.com/sebbas/plain-html-blog&quot;&gt;get the source code&lt;/a&gt; and read the README to learn how make your own &lt;em&gt;plain-html-blog&lt;/em&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 01 Apr 2016 07:00:00 +0000</pubDate>
+        <link>http://localhost:4000/welcome-to-plain-html-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/welcome-to-plain-html-blog/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+  </channel>
+</rss>
