@@ -8,7 +8,7 @@ updated: 2016-04-01 09:00:00 +0200
 
 {% for category in site.categories %}
   {% assign cat = category | first %}
-  <h3>New {{ cat }}</h3>
+  <h3>New Blog Posts</h3>
   <ul>
   {% for post in site.categories.[cat] limit:2 %}
     {% unless post.draft %}
