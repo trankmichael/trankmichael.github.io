@@ -1,10 +1,13 @@
 ---
 layout: post
-title: "Vegas Breads - Standard White / Poolish Bread"
-date: 2017-12-16 02:00:00 -0400
-updated: 2017-12-16 02:00:00 -0400
+title: Vegas Breads - Standard White / Poolish Bread
+date: '2017-12-16 02:00:00 -0400'
+updated: '2017-12-16 02:00:00 -0400'
 category: blog
+published: true
 ---
+![]({{site.baseurl}}/https://avatars1.githubusercontent.com/u/8660111?s=400&u=ad73720c2fbf646ae871f0a5090dee5e0cb23e7b&v=4)
+
 
 ![white-boule](https://lh3.googleusercontent.com/UDAaywRxYDtWF5SB5hxW4hL7fqSg0sVy7ivdDAZb6DCxa6D_bSRWLtQcWO_FE5ggI8It-j74iaFcAaag9cfT-h7ycp4_9yBtNg41rkktqLbIyZb8T7BYL4KSEQ6KwooFiIyArZEezwYtp_VjcnnhX36Wzd9S5iw7pfOxWLIR5vYAlBRJen-zAXrCjavf7mDnWXz2FE-nuPDTTfsKA1UU2dGpEOUwSb8Ol6NZ_1IiiCxeB-mDPLl7XKankUnPPlFxvIWzwyjw0oyHcOnQSm_8kfbty7POuc0GwRmulnmIItt4MLnft69T-ATqOrbhkXimD0uHXBihfNRywxehHMY_Q6Edyc9g70PtJrTbLlsV1p-of3EFFiWC2ZDq_a51RK2h1x7Fj8BVmuUYf1Ss4Oo7MAMoZSXy-K4QIZCH1KXElOGlWoSEdCt2oBnZvFvz_vgfvqX5i6D2jtCJbfnCNbEb45AwLUC6t7iz1T7n1gwrAfTsbB6dyuwwEr4HYI3jTZbQSzbPVCUUQL3EK1gn04AOwdKmP3s1CVNZzRkGHQxBoEUIgX_94UJyechMYFGsCFerPrYn-FcCYkLJdy8oDhrQJkjkyEq-wFD2shFQieqnwQ=w700-no)
 
@@ -31,4 +34,4 @@ category: blog
 - my family likes bread slightly soft so they were into it
 - this bread made me realize that not everyhing is about **open crumb** and that I neeed to focus now on **oven spring**
 - I also learned that the bottom of the bread should not be cracked, mine are usually like that because I bake with the crease on the bottom
-- we at this bread with some beef stew my dad made 
+- we at this bread with some beef stew my dad made
